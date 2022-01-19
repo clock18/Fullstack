@@ -1,0 +1,80 @@
+/* 타입 */
+pre{
+    text-align: center;
+}
+
+
+/* id */
+#s-id01{
+    color:hotpink;
+}
+#s-id02{
+    color:darkred;
+}
+
+
+/* class */
+.s-cls01{
+    background-color: black;
+    color: white;
+}
+
+
+/* 전체요소에 모두 적용 */
+*{
+    text-align: right;
+}
+
+
+/* 자식 */
+#atc > p {
+    color: yellowgreen;
+}
+#atc > div > p {
+    color : darkred;
+}
+
+/* 인접 */
+span + pre {
+    background-color: cornflowerblue;
+}
+
+/* span 있는 text 다 찾아서 바꿔라 */
+#atc02 span{
+    color: chocolate;
+}
+
+/* title 속성을 가진 p태그를 다 찾아서 바꿔라 */
+p[title]{
+    background-color: gray;
+}
+
+/* 안가봤던 곳 색 지정 */
+a:link{
+    color:green;
+    font-size:20pt;
+}
+
+/* 가봤던 곳 색 지정 */
+a:visited{
+    color:gold;
+}
+
+/* 커서를 대면 색이 변함 */
+a:hover{
+    background-color: black;
+    color:white;
+}
+
+/* 꾹 누르고 있으면 발생. 누르면 색이 어떻게 변화될
+것인가를 보여줌 */
+a:active{
+    background-color: yellow;
+    color:tomato;
+}
+
+/* 체크박스 크기 변화 */
+input:checked{
+    width: 100px;
+    height: 100px;
+}
