@@ -5,20 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <!--자바스크립트에서는 style 대신 script 사용-->
     <script type='text/javascript'>
-        /* function = 파이썬의 def역할 
-        var = 변수 지정하는 역할 */
         function embeddedFunction(){
 
             // document 에서 2번째로 li를 가진 요소들을 가지고 와라
             var doc = document.getElementsByTagName('li')[1];
 
-            doc.style.color ='red';
+            doc.style.color='red';
 
             // document의 내부 html을 변경
-            doc.innerHTML = '<strong>javascript가 html 문서(document)를 변화시켰다!!</strong>'
+            doc.innerHTML = '<strong>javascript가 html 문서(document)를 변화시켰다.'
         }
     </script>
 
@@ -29,10 +25,9 @@
     <h1>js 기본 문법</h1>
 
     <ol>
-        <!--onclick = 클릭하는 이벤트가 발생했을 때 처리할 문장-->
-        <li onclick='alert("inline방식 !!!")'>inline 방식</li>
-        <li onclick='embeddedFunction()'>내부 작성 방식</li>
-        <li onclick='fileFunction()'>외부 *.js 방식 (file)</li>
+        <li onclick="alert('inline방식!!!')">inline방식</li>
+        <li onclick="embeddedFunction()">내부 작성 방식</li>
+        <li onclick="fileFunction()">외부 *.js방식</li>
     </ol>
     
 </body>
