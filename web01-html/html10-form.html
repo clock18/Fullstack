@@ -9,8 +9,21 @@
 
 <body>
 
+    <!--method자리에는 post와 get이 올 수 있다
+    'get' : 이름/값 쌍으로 양식 데이터를 URL에 추가합니다.
+    GET을 사용하여 민감한 데이터를 보내지 마십시오! 
+    (제출된 양식 데이터는 URL에서 볼 수 있습니다!)
+    URL 길이가 제한됩니다(2048자).
+    사용자가 결과를 책갈피로 지정하려는 양식 제출에 유용합니다.
+    GET은 Google의 쿼리 문자열과 같은 비보안 데이터에 유용합니다.
+    'post' : HTTP 요청의 본문 안에 양식 데이터를 추가합니다
+    (제출된 양식 데이터는 URL에 표시되지 않음).
+    POST는 크기 제한이 없으며 많은 양의 데이터를 보내는 데 사용할 수 있습니다.
+    POST가 포함된 양식 제출은 책갈피로 지정할 수 없습니다.-->
     <form action="html-form-res.html" method="post">
+        <!--fieldset = 사각형으로 하나의 그룹을 만듬-->
         <fieldset>
+            <!--legend = 필드셋의 제목-->
             <legend>회원가입</legend>
 
             <p>ID : <input type="text" name="id"</p>

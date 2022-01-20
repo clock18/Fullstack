@@ -5,24 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- 텍스트로 쓴 것을 css로 적용시킬 것이라는 의미-->
     <style type='text/css'>
         *{
-            /* CSS margin속성은 정의된 테두리 외부의 
-            요소 주위에 공간을 만드는 데 사용됩니다.
-            CSS padding속성은 정의된 테두리 내부의 
-            요소 콘텐츠 주위에 공간을 생성하는 데 사용됩니다. */
-            padding:0px;
-            margin:0px;
+            padding: 0px;
+            margin: 0px;
         }
 
-        div{
-            border: 1px dashed blue;
+        .html5{
+            border: 1px dotted red;
             margin: 10px;
         }
 
-        #body{
-            height: 400px;
+        section{
+            height:400px;
         }
 
         #left{
@@ -38,33 +33,31 @@
         }
     </style>
 </head>
-
 <body>
-
-    <div  id='header'>
+    
+    <header class='html5'>
         <h1>제목</h1>
-        <div>
+        <nav class='html5'>
             <span><a href="#">메뉴1</a></span>
             <span><a href="#">메뉴2</a></span>
             <span><a href="#">메뉴3</a></span>
             <span><a href="#">메뉴4</a></span>
-        </div>
-    </div>
-        
-    <div id = 'body'>
-        <div id='left'>
+        </nav>
+    </header>
+
+    <section class='html5'>
+        <article class='html5' id='left'>
             <p>내용1</p>
-        </div>
-        <div id='right'>
+        </article>
+
+        <article class='html5' id='right'>
             <p>내용2</p>
-        </div>
-    </div>
-        
-    <div id = 'footer'>
-        <address>copyright &copy; all rights reserved...</address>
-    </div>
+        </article>
+    </section>
 
+    <footer class='html5'>
+        <address>copyright &copy; all rights reserved</address>
+    </footer>
 
-    
 </body>
 </html>
