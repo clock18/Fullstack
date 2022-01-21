@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type='text/javascript'>
+        function searchQS(){
+            // querySelector('css 선택자') => node 하나만 반환됨
+            //var doc = document.querySelector('#test');
+            //console.log(doc);
+            
+            /* querySelectorAll('css 선택자') => 해당 선택자를 가진
+               node들을 모두 가져옴 */
+            var doc = document.querySelectorAll('#test')[0];
+            //console.log(doc)
+            doc.innerHTML = 'querySelectorAll(css 선택자)';
+        }
+
+
+        function searchID(){
+            var doc = document.getElementById('test');
+            //console.log(doc);
+            doc.innerHTML = 'id 속성으로 탐색';
+            doc.style.color= 'red';
+        }
+
+        function searchName(){
+            //nodelist
+            var doc = document.getElementsByName('test02');
+            //console.log(doc);
+            doc[1].value = 'name으로 탐색!!'
+        }
+
+        function searchTag(){
+
+            // nodelist로 가져옴. 가져온 nodelist중 3번째 인덱스를 바꿈
+            var doc = document.getElementsByTagName('p');
+            doc[3].innerHTML = 'tag 이름으로 탐색했음';
+        }
+        
+    
+        
+    </script>
+</head>
+<body>
+    
+    <!-- Document Object Model
+    object(객체) 들이 모여있는 모델.
+    밑의 예시가 해당됨.
+    DOM 에서 내가 원하는 자료를 크롤링 하는 것을 DOM탐색이라고 함.-->
+
+    <p onclick='searchQS()'>DOM 탐색 메서드</p>
+
+    <p id='test' onclick='searchID()'>1. 엘리먼트의 id로 탐색 : 엘리먼트 하나를 선택(중복 불가) - 반환 : 값 하나 (Node)</p>
+
+    <p onclick='searchName()'>2. 엘리먼트의 name으로 탐색 : 엘리먼트를 여러 개 선택 - 반환 : 배열 (NodeList) 
+        <br>
+        <input type="text" name='test02' value=''><br>
+        <input type="text" name='test02' value=''><br>
+        <input type="text" name='test02' value=''>
+    </p>
+
+    <p onclick='searchTag()'>3. 엘리먼트의 태그 이름으로 탐색 : 엘리먼트를 여러 개 선택 - 반환 : 배열 (NodeList)</p>
+
+        
+
+</body>
+</html>
