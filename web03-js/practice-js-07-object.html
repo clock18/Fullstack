@@ -10,7 +10,6 @@
         function object01(){
             this.name01 = '홍길동';
 
-            // 여기서 var 는 지역변수이므로 외부에서 접근할 수 없음.
             var name02 = 'hong-gd';
 
             this.getName02 = function(){
@@ -18,38 +17,21 @@
             }
         }
 
-        // 밑의 예시를 "객체 리터럴" 이라고 함. (딕셔너리 형태=>key:value)
         var object02 = {
-            name: 'kim-sd',
-            prn: function(){
+            name : 'kim-sd',
+            prn : function(){
                 alert(object02.name + '의 전화번호 : 010-1234-5678');
             }
         }
 
         function objTest(){
-
-            //객체 생성 (여러 속성을 하나의 변수에 저장할 수 있도록 해주는 데이터 타입)
-            /* 
-            var obj1 = new Object()  // new 연산자를 이용한 객체 생성
-            var obj2 = {}            // 객체 리터럴로 객체를 생성    
-            */
             var obj01 = new object01();
-            //alert(obj01.name01);
-            //alert(object01.name02);
-            //alert(obj01.getName02());
-
-            //alert(object02.name);
-           
-            //object02.prn(); => 실행됨
-            //obj01.prn();    => 실행안됨  
+            obj01.prn();
         }
 
-        // prototype은 "객체" 에 기능을 추가하고 싶을 때 사용
-        object01.prototype.prn=function(){
-            alert(this.name01 + "의 전화번호는 010-2222-2222");
+        object01.prototype.prn = function(){
+            alert(this.name01 + '의 전화번호는 010-2222-2222');
         }
-
-        
     </script>
 </head>
 <body>
@@ -65,7 +47,6 @@
     </pre>
 
     <button onclick='objTest()'>확인</button>
-
 
 </body>
 </html>
