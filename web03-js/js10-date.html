@@ -24,7 +24,7 @@
             var inputDate = document.getElementById('today');
 
             // Date 객체 생성
-            var date = new Date()
+            var date = new Date();
 
             inputDate.innerHTML = date.toDateString() + "<br/>";
             inputDate.innerHTML += date.toLocaleDateString() + "<br/>";
@@ -70,6 +70,9 @@
             document.getElementById('specific').innerHTML = '수료 일시 : ' + date;
         }
 
+        /*
+        참조 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=diceworld&logNo=220168932456
+        */
         function testDate04(){
             var dates = document.getElementById('dates').value;
             var inputDate = document.getElementById('inputdate').value;

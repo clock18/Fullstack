@@ -7,64 +7,34 @@
     <title>Document</title>
     <script type='text/javascript'>
         function numberObj(){
-
-            //literal (순수한 값을 literal이라고 함)
             var num01 = 3;
-            //alert(num01 + ' : ' + typeof(num01));
-
-            //object
             var num02 = new Number(3);
-            //alert(num02 + " : " + typeof(num02));
 
-            /* 
-            parseInt : 문자열을 숫자로 바꾸는 함수
-            alert(parseInt('1') + 1);
-            */
-
-            // 결과는 NaN (=Not a Number)
-            //alert(parseInt('a') + 1);
-
-            // has랑 is결과값은 bool값 ex. isNaN
-            // 'to'가 붙는 함수는 '변환'을 의미 ex. toString
             var prop = prompt('숫자만 입력해 주세요');
             if (isNaN(prop)){
                 alert('숫자가 아닙니다');
-            } else {
-                alert('숫자가 맞습니다');
+            } else{
+                alert('숫자입니다.');
             }
         }
 
         function randomNum(){
-            // Math.random() : '0 <= x < 1'인 값을 리턴해줌
-            // Math.floor() : 내림
-            // Math.round() : 반올림
-            // Math.ceil() : 올림
-
-            // 0 ~ 100
             var hundred = Math.floor(Math.random() * 101);
 
-            // 10 ~ 100
             var min = 10;
             var max = 100;
             var ran = Math.floor(Math.random() * (max-min) + min);
-            //alert(ran);
-
-            // 1 ~ 46
-            var lotto = Math.floor(Math.random()*45+1);
-            alert('lotto번호 : ' + lotto);
+            
+            var lotto = Math.floor(Math.random() * 45 + 1);
         }
 
         function randomBG(){
-            // style 색상 표현식 : rgb(256, 256, 256)
             var rum = function(){
                 return Math.floor(Math.random() * 256);
             }
             document.body.style.backgroundColor = 'rgb(' + rum() + "," + rum() + "," + rum() + ")";
         }
-
-
-
-
+        
     </script>
 </head>
 <body>
@@ -91,47 +61,33 @@
     <style>
         #circle{
             border: 1px red solid;
-            display: none;
+            display:none;
         }
     </style>
     <div id='circle'></div>
     <script>
         function randomCircle(){
-            var rnum = Math.floor(Math.random() * 200);
+            var rnum = Math.floor(Math.random()*200);
             var circle = document.getElementById('circle');
 
             circle.style.width = rnum + 'px';
             circle.style.height = rnum + 'px';
 
-            // borderRadius를 원래는 4개써야하지만 1개만쓰면 모두 같은 값으로 들어감
             circle.style.borderRadius = Math.floor(rnum/2) + 'px';
-            // https://aboooks.tistory.com/85 참조
             circle.style.display = 'block';
         }
 
         function circleArea(){
-            // Math.PI
-            // px가 붙으면 문자열임. 따라서 px을 떼어줘야함.
-            
             var circleWidth = document.getElementById('circle').style.width;
-            // 떼주는 방법 1
-            alert(parseInt(circleWidth));
+            //alert(parseInt(circleWidth));
 
-            // 떼주는 방법 2
-            //var r2 = circleWidth.substring(0, circleWidth.length-2);
+            var r2 = circleWidth.substring(0, circleWidth.length-2);
+            var r = Math.floor(r2/2);
 
-            var r = Math.floor(r2 / 2);
-
-            // 원의 넓이 : pi r r
             document.getElementById('area').innerHTML = Math.floor(Math.PI * r * r);
-            //document.getElementById('area').innerHTML = Math.floor(Math.PI * Math.pow(r,2));
             
-            // 원의 둘레 : 2 r pi
             document.getElementById('len').innerHTML = Math.floor(Math.PI * 2 * r);
-
         }
-
     </script>
-
 </body>
 </html>

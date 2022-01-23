@@ -13,7 +13,7 @@
             var str03 = str01 + str02;
             //alert(str03)
 
-
+            // concat() : 괄호 안의 항목들을 차례로 추가해줌
             var newString = str01.concat('test','java', 'script');
             //alert(newString); 
 
@@ -29,8 +29,8 @@
 
             // 문자열과 다른 타입이 만나면 문자열로 합쳐져서 반환됨
             var result = 'string' + numVal + bool;
-            //alert(result);
-            //alert(typeof(result));
+            alert(result);
+            alert(typeof(result));
 
             var result2 = 'a' + 10 + 20
             //alert(result2)
@@ -41,6 +41,16 @@
             var span = document.getElementById('res');
 
             //toLowerCase = 모두 소문자로 만듬
+            /* 
+            innerText 와 textContent 차이점
+            1. 일단 textContent가 더 먼저 만들어졌으며 더 빨리 사용되었습니다. 
+            그런 이유로 브라우저 호환성도 좀 더 높습니다. 
+            또한 큰 차이는 아니지만 더 가볍다고 알려져 있습니다.
+            2. innerText는 불필요한 공백을 제거하고 텍스트로 반환하지만 
+            textContent는 모든 텍스트를 그대로 가져오는 차이점이 있습니다.
+            출처 : https://webisfree.com/2020-03-07/[%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8]-textcontent-%EA%B7%B8%EB%A6%AC%EA%B3%A0-innertext-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0
+            */
+
             if (str == '멀캠'){
                 span.textContent = str + '님 환영합니다';
             } else if(str.toLowerCase()=='multicampus'){
@@ -81,6 +91,7 @@
             alert('문자가 다릅니다');
         }
 
+        // === : 엄격하게 구분
         if (strObj === strLiteral){
             alert('문자가 같습니다. ===')
         } else {
