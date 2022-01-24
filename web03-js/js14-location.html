@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function locTest(){
+            //location.href='http://www.naver.com'
+            //location.assign('http://www.google.com');
+
+            /* 
+            떠 있는 윈도우 창을 입력된 주소를 가진 윈도우 창으로 대체하라는 의미
+            따라서 뒤로가기를 눌렀을 때 원래 떠있었던 윈도우 창은 대체되어서
+            없어졌기 때문에 index창으로 감.
+            */
+            //location.replace('http://lc.multicampus.com/k-digital');
+
+            // 새로고침
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    
+    <button onclick='locTest()'>경로 연습</button>
+
+</body>
+</html>
