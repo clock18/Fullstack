@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function ajaxTest(){
+
+            // 통신 관련 객체 생성
+            var xhr = new XMLHttpRequest();
+
+            /*
+            이벤트가 발생할 떄마다 함수가 실행됨
+            => readystate 가 변경될 때마다 함수 실행
+            = callback 
+            */
+            xhr.onreadystatechange = function(){
+
+                /* readyState (HTTP 상태 코드 검색)
+                0 : uninitialized
+                1 : loading
+                2 : loaded
+                3 : interactive
+                4 : complete
+                */
+                if (xhr.readyState == 4){
+
+                    /* status
+                    200 : success
+                    400 : bad request
+                    401 : unauthorized
+                    403 : forbidden
+                    404 : not found
+                    415 : unsupported media type
+                    500 : internal server error
+                    */
+                    if (xhr.status == 200){
+                       //alert(xhr.responseText);
+                       var respXml = xhr.responseXML;
+                       //console.log(respXml);
+                       //console.log(typeof(respXml));
+
+                       var table = document.getElementById('tb');
+                       var rows = respXml.getElementsByTagName('ROW');
+                       //console.log(rows);
+                       
+
+                       // 1. column 이름 만들기
+                       var columnTr = document.createElement('tr');
+                       for ( var i=0; i<rows[0].children.length; i++){
+                            //console.log(rows[0].children[i].nodeName);
+                            var th = document.createElement('th');
+                            th.appendChild(document.createTextNode(rows[0].children[i].nodeName));
+
+                            columnTr.appendChild(th);
+                       }
+                       table.appendChild(columnTr);
+
+
+                       // 2. data 만들기
+                       for ( var i=0; i<rows.length; i++){
+                           var tr = document.createElement('tr');
+                           for (var j=0; j<rows[i].children.length; j++){
+                               var td = document.createElement('td');
+                               td.appendChild(document.createTextNode(rows[i].children[j].textContent));
+                               tr.appendChild(td);
+                           }
+                           table.appendChild(tr);
+                       }
+                    }
+                }
+            }
+        
+            // (get방식으로, 해당경로) 에 요청
+            xhr.open('GET','emplist.xml');
+
+            // 실행
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    
+    <!-- 
+        ajax : Asynchronous Javascript And Xml
+        비 동기 통신 (아약스)
+        
+        callback Hell
+    -->
+
+    <button onclick='ajaxTest()'>ajax</button>
+
+    <table id='tb' border='1'></table>
+
+</body>
+</html>

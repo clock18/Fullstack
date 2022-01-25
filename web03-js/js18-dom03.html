@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function elementCreate(){
+
+            // <div><div> 가 만들어진것 (element 생성)
+            
+            var div = document.createElement('div');
+
+            // style=  이 생성된것 ( attribute 생성 )
+            var attr = document.createAttribute('style');
+            attr.nodeValue = 'border:2px solid blue';
+
+            // <div style='border:2px solid blue'></div>
+            div.setAttributeNode(attr);
+            
+
+
+            div.setAttribute('style','border:2px solid red');
+
+            
+
+            // 엘리먼트생성 (textnode 생성)
+            var txt = document.createTextNode("엘리먼트 생성!!");
+
+            // <div style='border:2px solid blue'>엘리먼트 생성</div>
+            div.appendChild(txt);
+            
+            /* appendChild :  body의 형제노드로 div를 추가하는 것
+            현재 body의 형제노드는 버튼 뿐임. */
+            document.body.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+    
+    <button onlick='elementCreate()'>엘리먼트 생성하기</button>
+
+</body>
+</html>

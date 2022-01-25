@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            vertical-align: middle;
+            width:300px;
+            height:300px;
+        }
+
+        a{
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+
+        window.onload=function(){
+            var anchs = document.querySelectorAll('a');
+            var img = document.querySelector('img');
+
+            var count = 1;
+
+            // 왼쪽화살표
+            anchs[0].onclick = function(){
+                var imgAlt = img.getAttribute('alt')
+                if (imgAlt == 'img01') {
+                    count = 6;
+                    img.setAttribute('alt','img06');
+                    img.setAttribute('src','resources/imgs/img06.png');
+                } else{
+                    img.setAttribute('alt','img0'+(--count));
+                    img.setAttribute('src','resources/imgs/img0'+count+'.png');
+                }
+            }
+
+            
+            // 오른쪽화살표
+            anchs[1].onclick = function(){
+                var imgAlt = img.getAttribute('alt');
+                if (imgAlt == 'img06'){
+                    count=0;
+                    img.setAttribute('alt','img01');
+                    img.setAttribute('src','resources/imgs/img01.png');
+                } else {
+                    //전위연산, 후위연산 (++i, i++) 알아보기
+                    img.setAttribute('alt','img0'+(++count));
+                    img.setAttribute('src','resources/imgs/img0'+count+'.png');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <div>
+        <!-- href에 아무 값도 없으면 새로고침하라는 의미. 
+        따라서 계속 새로고침 되기 떄문에 값이 바뀌더라도 처음 사진이
+        유지되는것임.
+        # 기능 암기하기-->
+        <a href="#" id='lt'>◀</a>
+        <!-- alt는 이미지가 잘 로드되지않았을 때 alt에 설정한
+        그림이 나오도록 해줌 -->
+        <img src="resources/imgs/img01.png" alt="img01"/>
+        <a href="#" id='gt'>▶</a>
+    </div>
+
+</body>
+</html>
