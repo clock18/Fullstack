@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src='resources/js/jquery-3.6.0.min.js'></script>
+
+    <script>
+        $(function(){
+            $("#signal").submit(function(){
+                if($(".infobox").val() == null || $(".infobox").val() == ''){
+                    $(".error").show()
+                    return false;
+                }
+            });
+
+            $("#confirm").click(function(){
+                $("#result").empty();
+
+                // checkbox 중 checked 되어있는 요소들을 가지고 와서
+                // .each() 를 사용하여 해당 요소들의 가격을 가져옴
+                /* 
+                each() = "input[name=chk]:checked"에 function함수를 각각
+                적용시키는 함수
+                */
+                var total = 0
+                $("input[name=chk]:checked").each(function(i){
+                    //console.log(i);
+                    //var chk = $(this);
+                    //eq = 선택한 요소의 인덱스 번호에 해당하는 요소를 찾습니다.
+                    var chk = $("input[name=chk]:checked").eq(i);
+                    //console.log(chk);
+
+                    //next 는 chk 다음 태그를 찾음
+                    //text 는 그 태그의 텍스트값을 찾음
+                    var book = chk.next().text();
+                    var price = chk.val();
+                    $("#result").append(book + " : " + price + "<br/>");
+
+                    /* 
+                    parseInt or eval 사용
+                    일반적으로 parseInt 사용. 
+
+                    eval은 수식이 있어야함. ex) + - * ...
+                    근데 왜 실행이 되지?
+                    */
+                    total += parseInt(price);
+                });
+                
+                $("#result").append(total);
+            })
+
+            // 숙제 2 : 모두 선택되어있으면 name이 all인 체크박스도 체크
+            // 하나라도 체크해제되면 name이 all인 체크박스 체크 해제
+            $("input[name=chk").click(function(){
+
+            });
+
+        }) 
+
+        // 숙제
+        function allChk(bool){
+
+        }
+
+        
+    </script>
+
+</head>
+<body>
+    
+    <form id='signal'>
+        <div>
+            <span class='label'>User ID</span>
+            <input type="text" class='infobox' name='userid'>
+            <span class='error' hidden='' style='color:red;'>반드시 입력하세요!!</span>
+        </div>
+        <input type="submit" class='submit' value='입력'/>
+    </form>
+    
+
+    <hr>
+
+    <fieldset style='width:300px'>
+        <legend>체크 여부 확인</legend>
+
+        <input type="checkbox" name='all' onclick='allChk(this.checked)'>전체선택
+        <br>
+        <input type="checkbox" name='chk' value='20000'/><b>python</b>
+        <br>
+        <input type="checkbox" name='chk' value='25000'/><b>pandas</b>
+        <br>
+        <input type="checkbox" name='chk' value='30000'/><b>django</b>
+        <br>
+
+        <input type="button" id='confirm' value='확인'>
+        <br>
+
+        <span>선택한 책 가격</span>
+        <div id='result'></div>
+    </fieldset>
+</body>
+</html>
