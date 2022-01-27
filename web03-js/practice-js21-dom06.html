@@ -22,21 +22,15 @@
             fieldset.appendChild(p);
         }
 
-
         var count=1;
         function addInsert(){
-            var newP = document.createElement('p');
+            var newP = document.createElement("p");
             var fieldset = document.getElementById('addele');
 
             newP.textContent = '엘리먼트의 앞에 넣어진다.' + (count++);
 
             var oldDiv = document.querySelector('fieldset > div');
 
-            /* 
-            insertBefore = 자식노드를 추가할건데 oldDiv 전에 삽입
-            count++ 하는 이유는 legend, newP, newP, ... , div 이렇게
-            삽입하기 위해서
-            */
             fieldset.insertBefore(newP, oldDiv);
         }
 
@@ -44,16 +38,11 @@
             var moveEle = document.querySelector('fieldset').children[1];
             var addEle = document.body;
             addEle.appendChild(moveEle);
-            /*
-                검사하지 않는 숙제
-                childNodes와 children의 차이점?
-                => https://hogni.tistory.com/122
-            */
         }
     </script>
 </head>
 <body>
-    
+
     <h1>태그 추가하기</h1>
 
     <button onclick='addAppend()'>appendChild()</button>
@@ -64,6 +53,7 @@
         <legend>부모태그</legend>
         <div>div</div>
     </fieldset>
+
 
 
 </body>

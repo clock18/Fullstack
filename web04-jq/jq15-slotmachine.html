@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            width:150px;
+            height:150px;
+            float:left;
+        }
+        #menubox{position:relative}
+        #menu{overflow: auto;}
+        .sel{
+            width:140px;
+            height:140px;
+            border:5px dotted red;
+            position:absolute;
+            left:300px;
+        }
+        button{
+            width:150px;
+            height:50px;
+            margin-left:300px;
+        }
+    </style>
+
+    <script src='resources/js/jquery-3.6.0.min.js'></script>
+
+    <script>
+        $(function(){
+            /* setInterval : 일정시간 간격으로 계속해서 특정 작업을 수행하고자 할 때 
+            사용함 (특정시간마다 계속 실행)
+            사용방법 :  setInterval('함수', 특정시간) // ex. 1000 (약 1초)
+            */
+            setInterval(function(){
+                var div = $('#menu');
+                /* appendTo : 뒤에있는 객체에 앞에있는 내용을 붙이겠다.
+                append : 앞에있는 객체에 뒤에있는 내용을 붙이겠다.
+                append > appendTo
+                */
+               //first() : 첫번째 위치에 해당하는 객체 선택
+                $(".active").first().appendTo(div);
+            }, 100);
+
+            $("button").click(function(){
+                $("img").toggleClass("active");
+                if($("button").text() == "start"){
+                    $("button").text("stop");
+                } else{
+                    $("button").text("start");
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    
+    <h1>SlotMachine</h1>
+
+    <div id='menubox'>
+        <div class='sel'></div>
+
+        <div id='menu'>
+            <img src="resources/imgs/img01.png" alt="img01">
+            <img src="resources/imgs/img02.png" alt="img02">
+            <img src="resources/imgs/img03.png" alt="img03">
+            <img src="resources/imgs/img04.png" alt="img04">
+            <img src="resources/imgs/img05.png" alt="img05">
+            <img src="resources/imgs/img06.png" alt="img06">
+        </div>
+
+        <button>start</button>
+    </div>
+
+</body>
+</html>

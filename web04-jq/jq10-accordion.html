@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main_menu{width:300;}
+        .sub_menu1{cursor:pointer;}
+        .sub_menu2{display:none; cursor:default;}
+    </style>
+
+    <script src='resources/js/jquery-3.6.0.min.js'></script>
+
+    <script>
+        // hasClass : if문을 통한 class 존재 여부 확인
+        /* 
+        slideToggle : slideToggle([duration], [,easing], [,callback])
+        .slideToggle()은 보이지 않는 요소는 아래쪽으로 
+        서서히 나타나게 하고, 보이는 요소는 위쪽으로 서서히 사라지게 합니다.
+        출처 : https://www.codingfactory.net/11902
+
+        < easing function : 속도를 늦추는 함수 >
+        swing : 끝 점에 가서 속도가 살짝 느려짐
+        linear : 속도 유지
+        속도가 낮을수록 빠름
+        */
+        $(function(){ 
+            /*
+            $("b").eq(0).click(function(){
+                $(".sub_menu2").eq(0).slideToggle(600);
+            })
+            $("b").eq(1).click(function(){
+                $(".sub_menu2").eq(1).slideToggle(500);
+            })
+            $("b").eq(2).click(function(){
+                $(".sub_menu2").eq(2).slideToggle(400);
+            })
+            $("b").eq(3).click(function(){
+                $(".sub_menu2").eq(3).slideToggle(200);
+            })
+            */
+           
+           $("b").click(function(){
+               //$(this).next().slideDown();
+               //$(this).parent().siblings().find('ul').slideUp();
+               $(this).next().slideDown().end().parent().siblings().find('ul').slideUp();
+           })
+        })
+    </script>
+</head>
+<body>
+    
+    <p>메뉴 만들기</p>
+    <ul type='square' class='main_menu'>
+        <li class='sub_menu1'><b>(1)css 선택자</b>
+            <ul type='circle' class='sub_menu2'>
+                <li>tag 선택</li>
+                <li>id 선택</li>
+                <li>class 선택</li>
+                <li>parent child 선택</li>
+                <li>parent &gt; child 선택</li>
+                <li>:nth-child 선택</li>
+                <li>:first-child 선택</li>
+                <li>:last-child 선택</li>
+            </ul>
+        </li>
+
+        <li class='sub_menu1'><b>(2)속성 선택자</b>
+            <ul type='circle' class='sub_menu2'>
+                <li>[attr]</li>
+                <li>[attr=value]</li>
+                <li>[attr!=value]</li>
+            </ul>
+        </li>
+
+        <li class='sub_menu1'><b>(3)폼 선택자</b>
+            <ul type='circle' class='sub_menu2'>
+                <li>input:type</li>
+            </ul>
+        </li>
+
+        <li class='sub_menu1'><b>(4)사용자 정의</b>
+            <ul type='circle' class='sub_menu2'>
+                <li>:eq</li>
+                <li>:first</li>
+                <li>:last</li>
+                <li>:even</li>
+                <li>:odd</li>
+                <li>:parent</li>
+            </ul>
+        </li>
+
+    </ul>
+
+</body>
+</html>

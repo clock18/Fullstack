@@ -55,15 +55,25 @@
 
             // 숙제 2 : 모두 선택되어있으면 name이 all인 체크박스도 체크
             // 하나라도 체크해제되면 name이 all인 체크박스 체크 해제
-            $("input[name=chk").click(function(){
-
+            $("input[name=chk]").click(function(){
+                // if($("name[=chk]").length == $("name[chk]:checked.length"))
+                if($("input[name=chk]:checked").length == 3){
+                    $("input[name=all]").prop("checked",true);
+                } else{
+                    $("input[name=all]").prop('checked',false);
+                }
+                
+            
             });
-
-        }) 
+        });   
 
         // 숙제
         function allChk(bool){
+            var chks = $("input[name=chk]")
 
+            for (var i=0; i<chks.length; i++ ){
+                chks[i].checked = bool;
+            }
         }
 
         

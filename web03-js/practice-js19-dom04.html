@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img, #imgview{
+            width:300px;
+            height:300px;
+        }
+    </style>
+
+    <script>
+        function createImg(){
+            var radios = document.getElementsByName('rdobtn');
+
+            var radioVal = '';
+            for (var i=0; i<radios.length ; i++){
+                if (radios[i].checked){
+                    radioVal = 'resources/imgs/' + radios[i].value;
+                }
+            }
+
+            var img = document.createElement('img');
+            img.setAttribute('src', radioVal)
+
+            var div = document.getElementById('imgview');
+            var chd = document.querySelector("#imgview > img");
+            div.replaceChild(img,chd);
+        }
+
+        function deleteImg(){
+            document.getElementById("imgview").innerHTML = "<img src=''>";
+        }
+    </script>
+
+</head>
+<body>
+    
+    <input type="radio" name='rdobtn' value='img01.png'>img01<br/>
+    <input type="radio" name='rdobtn' value='img02.png'>img02<br/>
+    <input type="radio" name='rdobtn' value='img03.png'>img03<br/>
+
+    <button onclick='createImg()'>이미지 생성</button>
+    <button onclick='deleteImg()'>이미지 삭제</button>
+
+    <div id='imgview'><img src=""></div>
+
+</body>
+</html>
