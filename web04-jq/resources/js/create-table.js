@@ -4,7 +4,7 @@ function makeTable(elem){
 	var $table = $("<table border=1>");
 	
 	//컬럼 정의하기
-	for(var i =0; i<1;i++){
+	for(var i =0; i<1;i++){  // 없어도 되는 부분
 		var $tr=$("<tr>");
 		for(var j=0; j<elem.eq(0).children().length;j++){
 			var $td=$("<td>").append(elem.eq(0).children().eq(j).prop("tagName"));

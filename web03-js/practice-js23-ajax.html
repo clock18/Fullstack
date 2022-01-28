@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function ajaxTest(){
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4){
+                    if( xhr.status == 200){
+                        var respXml = xhr.responseXML;
+                        var table = document.getElementById('tb');
+                        var rows = respXml.getElementsByTagName('ROW');
+
+                        var columnTr = document.createElement('tr');
+                        for (var i=0; i<rows[0].children.length; i++){
+                            var th = document.createElement('th');
+                            th.appendChild(document.createTextNode(rows[0].children[i].nodeName));
+
+                            columnTr.appendChild(th);
+                        }
+                        table.appendChild(columnTr);
+
+                        for (var i=0; i<rows.length; i++){
+                            var tr = document.createElement('tr');
+                            for(var j=0; j<rows[i].children.length; j++){
+                                var td = document.createElement('td');
+                                td.appendChild(document.createTextNode(rows[i].children[j].textContent));
+                                tr.appendChild(td);
+                            }
+                            table.appendChild(tr);
+                        }
+                    }
+                }
+            }
+
+            xhr.open('GET','emplist.xml')
+
+            xhr.send();
+
+        }
+    </script>
+</head>
+<body>
+    
+    <button onclick='ajaxTest()'>ajax</button>
+
+    <table id='tb' border='1'></table>
+
+</body>
+</html>
