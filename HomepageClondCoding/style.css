@@ -1,4 +1,8 @@
 :root {
+    /* 
+    웹 문서에서 공통으로 사용될 속성을 미리 변수에 선언한다.
+    형식은 아래와 같다.
+    */
     /* Color */
     --white-color:#fff;
     --black-color:#140a00;
@@ -21,11 +25,22 @@
 *{
     padding:0;
     margin:0;
+
+    /*
+    content-box : 콘텐트 영역을 기준으로 크기를 정함
+    border-box : 테두리를 기준으로 크기를 정함
+    initial : 기본값으로 설정
+    inherit : 부모 요소의 속성값을 상속받음
+    */
     box-sizing:border-box;
 }
 
 body{
-    font-family: Ubuntu;
+    /* 
+    글꼴을 여러개 사용할 경우 첫번쨰 글꼴로 표현할 수 없는 것만 다음 글꼴을
+    사용
+    */
+    font-family: Ubuntu, fantasy;
 }
 
 ul {
@@ -41,7 +56,21 @@ button:focus{
 
 /* Header */
 header{
+    /*
+    flex : block
+    inline-flex : inline
+    https://www.w3schools.com/css/css3_flexbox_container.asp
+    */
     display: flex;
+
+    /*
+    justify-content => 
+    1. start (기본값)
+    2. center(중간 정렬)
+    3. space-between (양쪽 끝 정렬)
+    4. space-aroung
+    5. space-evenly
+    */
     justify-content: space-between;
     padding: var(--padding);
     background-color: var(--black-color);
@@ -67,6 +96,12 @@ PostCSS
 
 /* Video Player */
 .player{
+    /*
+    sticky 속성은 필수적으로 top, bottom, left, right들 중에 하나를
+     필수적으로 설정해주어야 합니다. sitcky로 설정된 영역은 설정된 위치
+     (예 top: 0px)에 도달하기 전까지는 static 속성처럼 행동하다가 
+     설정된 위치에 다다르면 fixed 속성처럼 행동하는 속성입니다.
+    */
     position: sticky;
     top: 0;
     text-align:center;
@@ -100,6 +135,11 @@ body > .info {
 .info .metadata .titleAndButton .title{
     font-size: var(--font-medium);
     display: -webkit-box;
+
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/box-orient
+    https://developer.mozilla.org/ko/docs/Web/CSS/-webkit-line-clamp
+     */
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;      /* 제목을 2줄로 제한, 버튼을 눌러야 제목이 모두 나옴 */
     overflow: hidden;
@@ -151,6 +191,10 @@ body > .info {
 
 .channel .metadata{
     display:flex;
+
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+    */
     align-items: center;
 }
 
@@ -232,6 +276,10 @@ body > .info {
     flex-direction:column;
 }
 
+/* 
+media => all, print(페이지가 인쇄될 경우), 
+screen(특정 너비 이상or이하가 될 경우 적용할 문장), speech
+*/
 @media screen and (min-width: 768px){
     .infoAndUpNext{
         flex-direction:row;
