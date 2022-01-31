@@ -79,18 +79,25 @@
 				}
 			})
 		})
-
+		/*
 		$("button:eq(8)").click(function(){
 			$("div:eq(8)").children(":contains(bold)").css("font-weight","bold");		
 		})
+		*/
+
+		$("button:eq(8)").click(function(){
+                $(".box:eq(3)").children(":contains(bold)").css("font-weight","bold")
+            })
 
 		$("button:eq(9)").click(function(){
 			// end() => $('.div).find('p') 같이 이동할때만 쓴다
 			// 위의 예시에서 end를 쓸 경우 $('.div')로 돌아감
 			$("#lastQuestion").attr("readonly","readonly").css("color","red");
 		})
+		
 
 	})
+	
 	
 		
 	
